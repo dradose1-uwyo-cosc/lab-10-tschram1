@@ -1,14 +1,14 @@
-# Your Name Here
+# Tanner Schramm
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# 11//19/2024
+# Lab 10
+# Lab Section: 10
 # Sources, people worked with, help given to: 
 # your
 # comments
 # here
 
-#import modules you will need 
+# import modules you will need 
 
 from hashlib import sha256 
 from pathlib import Path
@@ -16,6 +16,18 @@ from pathlib import Path
 def get_hash(to_hash):
     """You can use """
     return sha256(to_hash.encode('utf-8')).hexdigest().upper()
+
+def password_crack():
+    try:
+        with open('txt123', 'r') as hash_file:
+            hashed=hash_file.read.strip()
+    except FileNotFoundError:
+        print("File not found.")
+    
+    
+
+    
+
 
 
 
