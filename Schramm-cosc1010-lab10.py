@@ -3,7 +3,7 @@
 # 11//19/2024
 # Lab 10
 # Lab Section: 10
-# Sources, people worked with, help given to: 
+# Sources, people worked with, help given to: I was given help by the TA in parts of the code. I also used Chat GPT to debug and fix the code in parts that did not work correctly. It was able to help me. 
 # your
 # comments
 # here
@@ -19,11 +19,25 @@ def get_hash(to_hash):
 
 def password_crack():
     try:
-        with open('txt123', 'r') as hash_file:
-            hashed=hash_file.read.strip()
+        with open('hash', 'r') as hash_file:
+            hashed=hash_file.read().strip()
     except FileNotFoundError:
-        print("File not found.")
+        print("Error: 'hash' file not found")
+        return
+    try:
+         with open('rockyou.txt', 'r', encoding='utf-8', errors='ignore') as rockyou_file:
+            for password in rockyou_file:
+                password = password.strip()
+                if get_hash(password) == hashed: # Goes to the hash file and hashes it from the get_hash function
+                    print(f"Password found: {password}")
+                    return
+    except FileNotFoundError:
+        print("Error: 'rockyou.txt' file not found.")
+
+password_crack() # Runs the file 
     
+# Answer: 
+# Password Found: gopokes
     
 
     
